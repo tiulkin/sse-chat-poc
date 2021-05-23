@@ -1,23 +1,30 @@
+import React, {useState} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import css from './app.module.css'
+import chat from './chat.svg';
+import close from './close.svg';
+import {Chat} from './Chat';
 
 function App() {
+  const [isOpened, setIsOpened] = useState();
+  const [name, setName] = useState(window.localStorage?.name || `Пользователь-${Math.random().toString(36).substring(2)}`);
+
+    if (window.localStorage) {
+        window.localStorage['name'] = name;
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className={css.root}>
+      <header className={css.header}>
+        <img src={logo} className={css.logo} alt="logo" />
+        <input onChange={event => setName(event.target.value ||  window.localStorage['name'] || 'anonymous')} value={name}/>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            Нажмите на кнопку справа внизу и откроется чат!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <img src={isOpened ? close : chat} className={css.chat} onClick={()=>setIsOpened(!isOpened)}/>
+        {isOpened && (
+            <Chat name={name} />
+        )}
     </div>
   );
 }

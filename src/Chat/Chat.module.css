@@ -1,0 +1,55 @@
+.root {
+    width: 400px;
+    height: 400px;
+    font-size: 30px;
+    position: absolute;
+    bottom: 150px;
+    right: 30px;
+    background-color: cornsilk;
+    border-radius: 20px;
+    color: rgb(51, 51, 51);
+}
+input {
+    font-size: 20px;
+}
+.messages {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 80px);
+    align-items: flex-start;
+    padding: 10px 20px;
+    font-size: 16px;
+    overflow: auto;
+}
+.message {
+    height: 60px;
+    border-top:1px solid #dddfe0;
+    font-size: 20px;
+}
+.newMessage {
+    border-top:1px solid #dddfe0;
+    padding: 0 14px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+.newMessageText {
+    margin: 0 auto;
+    border: 0;
+    background: 0 0;
+    color: inherit;
+    outline: 0;
+    appearance: none;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: haas,helvetica,arial,sans-serif;
+    resize: none;
+    width: calc(100% - 28px);
+    overflow: hidden;
+}
+.hello {
+    margin: auto;
+    font-size: 20px;
+}
+.name {
+    color: gray;
+}
