@@ -10,7 +10,7 @@ export const Chat = ({name}) => {
     const eventSourceRef = useRef();
     const messagesRef = useRef();
     useEffect( ()=> {
-        messagesRef?.current.scrollTo(0,9000)
+        messagesRef?.current?.scrollTo(0,9000)
     }, [messages]);
     useEffect(() => {
         if (!window.EventSource) {
@@ -25,7 +25,7 @@ export const Chat = ({name}) => {
             })
         }
 
-        function onError(event) {
+        function onError() {
             setMessages(prevMessages => {
                 setMessages([ ...prevMessages ,{
                     isbot: true,
