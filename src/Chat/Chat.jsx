@@ -46,8 +46,7 @@ export const Chat = ({name}) => {
     }, [name])
 
     const handleKeyPress = event => {
-        if (event.which === 13 || event.keyCode === 13 || !(event.which || event.keyCode) && message) {
-            if (event.which === 13 && message) {
+        if ((event.which === 13 || event.keyCode === 13) && message) {
                 const form_data = new FormData();
                 form_data.append('message', message)
                 form_data.append('name', name)
@@ -55,7 +54,6 @@ export const Chat = ({name}) => {
                     method: 'post',
                     body: form_data
                 }).finally(() => setMessage(''));
-            }
         }
         return true;
     };
